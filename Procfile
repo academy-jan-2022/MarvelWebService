@@ -1,1 +1,1 @@
-web: java -jar build/libs/*-SNAPSHOT.jar
+web: java -jar -Dserver.port=$PORT build/libs/*-SNAPSHOT.jar
