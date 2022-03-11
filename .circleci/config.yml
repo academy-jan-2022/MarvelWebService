@@ -50,7 +50,7 @@ jobs:
       - run:
 
           name: Analyze on SonarCloud
-          command: gradle build sonarqube Dsonar.login={{ SONAR_TOKEN }}
+          command: gradle sonarqube Dsonar.login=${SONAR_TOKEN}
 
 workflows:
   build:
