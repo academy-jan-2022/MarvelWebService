@@ -48,8 +48,9 @@ jobs:
       - run: gradle test jacocoTestReport sonarqube
 
       - run:
+
           name: Analyze on SonarCloud
-          command: gradle build sonarqube"
+          command: gradle build sonarqube Dsonar.login={{ SONAR_TOKEN }}
 
 workflows:
   build:
