@@ -44,3 +44,20 @@ jobs:
 
       # run tests!
       - run: gradle test
+workflows:
+  build:
+    jobs:
+      - build
+      - heroku/deploy-via-git:
+          api-key: HEROKU_API_KEY
+          force: false
+          maintenance-mode: false
+          app-name: marvel-web-service
+          branch: main
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - build
+  
