@@ -45,7 +45,12 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle test
+      - run: gradle test jacocoTestReport sonarqube
+
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube"
+
 workflows:
   build:
     jobs:
@@ -62,4 +67,3 @@ workflows:
                 - main
           requires:
             - build
-  
